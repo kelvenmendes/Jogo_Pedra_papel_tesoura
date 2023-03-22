@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="atyle.css">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Pedra, Papel, Tesoura</h1>
+ 
+   <div> 
+     <button onclick="jogar('Pedra')">✊</button> 
+    <button  onclick="jogar('Papel')">✋</button> 
+    <button  onclick="jogar('Tesoura')"> ✌ </button> 
+ </div>
+   <p>Você: <span id="PontuacaoUser">0</span></p>
+   <p>computador: <span id="pontualcaoBot">0</span></p>
+
+   <script>
+    const jogadasPossiveis = ['Pedra','Papel','Tesoura']
+    let PontuacaoUsuario = 0
+    let pontualcaoBott = 0
+
+
+
+
+    function jogar (jogadaUsuario) {
+    //1- saber oq o usuario jogou (x)
+    //2- fazer o pc ter uma jogada ()
+    //3- saber quem ganhou
+    // atualizar as pontuações
+
+
+const jogadaAleatoria = Math.floor(Math.random() * 3)
+alert(jogadaAleatoria)
+    const jogadaDoPC = jogadasPossiveis[jogadaAleatoria]
+
+    if (jogadaDoPC === jogadaUsuario){
+        alert('Empate');
+    }else if (jogadaDoPC === 'Pedra'){
+        if (jogadaUsuario === 'Papel'){
+            alert('Ganhou, o bot jogou pedra')
+            pontualcaoBott = pontualcaoBott + 1
+        }else{
+            alert ('Perdeu, o computador jogou pedra')
+            pontualcaoBott = pontualcaoBott + 1
+        }
+    }else if (jogadaDoPC === 'Papel') {
+        if (jogadaDoPC === 'Pedra') {
+            alert ('Perdeu, o computador jogou papel')
+            pontualcaoBott = pontualcaoBott + 1
+        } else {
+            alert ('Ganhou')
+            PontuacaoUsuario = PontuacaoUsuario + 1
+        }
+    }else {
+        if (jogadaUsuario === 'Pedra'){
+            alert ('Ganhou, o computador jogou tesoura')
+            
+            PontuacaoUsuario = PontuacaoUsuario + 1
+        } else ('perdeu')
+        pontualcaoBott = pontualcaoBott + 1
+
+    }
+
+    document.querySelector('#PontuacaoUser').innerText = PontuacaoUsuario
+
+    document.querySelector('#pontualcaoBot').innerText = pontualcaoBott
+}
+
+   </script>
+</body>
+</html>
